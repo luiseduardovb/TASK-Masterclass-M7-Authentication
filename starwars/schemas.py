@@ -1,12 +1,15 @@
 import graphene
 
+from ships.mutations import ShipMutations
+from ships.queries import ShipQueries
 
-class Query(graphene.ObjectType):
-    hello = graphene.String(default_value="Yo!")
 
-
-class Mutation(graphene.ObjectType):
+class Query(ShipQueries, graphene.ObjectType):
     pass
 
 
-SCHEMA = graphene.Schema(query=Query)
+class Mutation(ShipMutations, graphene.ObjectType):
+    pass
+
+
+SCHEMA = graphene.Schema(query=Query, mutation=Mutation)

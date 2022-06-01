@@ -4,6 +4,9 @@ version = "0.1.0"
 description = ""
 authors = ["Mohammad Al-Thunayan <malthunayan4@gmail.com>"]
 
+[tool.poetry.scripts]
+manage = "manage:main"
+
 [tool.poetry.dependencies]
 python = "^3.9"
 Django = "<4"
