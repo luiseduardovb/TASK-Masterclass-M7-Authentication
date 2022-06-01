@@ -59,13 +59,14 @@ Sorry I don't know any star war lines
 ## File Uploads
 
 1. Add `Pillow` to your project by running `poetry add pillow`.
-2. Add an image field to the `SpaceShip` model.
+2. Setup media files using [this article](https://testdriven.io/blog/django-static-files/).
+3. Add an image field to the `SpaceShip` model.
    - Make it nullable
    - Make the default `None`
-3. Make migrations and migrate.
-4. Now add `graphene-file-upload` by running `poetry add graphene-file-upload`.
-5. Add an `Upload` scalar to the relevant `SpaceShip` mutations.
+4. Make migrations and migrate.
+5. Now add `graphene-file-upload` by running `poetry add graphene-file-upload`.
+6. Add an `Upload` scalar to the relevant `SpaceShip` mutations.
    - Import it from `from graphene_file_upload.scalars import Upload`
    - Add it to `CreateSpaceShip` arguments
    - Add it to `UpdateSpaceShip` arguments
-6. Test out your mutations on Altair.
+7. Test out your mutations on Altair.
