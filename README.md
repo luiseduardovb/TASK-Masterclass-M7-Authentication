@@ -55,3 +55,17 @@ Sorry I don't know any star war lines
 1. Change your delete mutation `login_required` decorator to a custom one that checks if the user is logged in AND matches the id of the space ship.
    - This is a completely custom decorator so it cannot use `user_passes_test`.
 2. Test out the delete mutation in Altair.
+
+## File Uploads
+
+1. Add `Pillow` to your project by running `poetry add pillow`.
+2. Add an image field to the `SpaceShip` model.
+   - Make it nullable
+   - Make the default `None`
+3. Make migrations and migrate.
+4. Now add `graphene-file-upload` by running `poetry add graphene-file-upload`.
+5. Add an `Upload` scalar to the relevant `SpaceShip` mutations.
+   - Import it from `from graphene_file_upload.scalars import Upload`
+   - Add it to `CreateSpaceShip` arguments
+   - Add it to `UpdateSpaceShip` arguments
+6. Test out your mutations on Altair.
