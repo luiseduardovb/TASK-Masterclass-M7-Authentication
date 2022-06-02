@@ -17,7 +17,8 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path
 from django.views.decorators.csrf import csrf_exempt
-from graphene_django.views import GraphQLView
+from graphene_file_upload.django import FileUploadGraphQLView
+from django.conf.urls.static import static
 
 from starwars.schemas import SCHEMA
 
@@ -27,7 +28,11 @@ urlpatterns = [
     path(
         "graphql/",
         csrf_exempt(
-            GraphQLView.as_view(graphiql=settings.DEBUG, schema=SCHEMA)
+            FileUploadGraphQLView.as_view(graphiql=settings.DEBUG, schema=SCHEMA)
         ),
     ),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

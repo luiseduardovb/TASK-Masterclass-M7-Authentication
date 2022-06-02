@@ -1,14 +1,23 @@
 import graphene
 
+
+
+
+
 from ships.mutations import ShipMutations
 from ships.queries import ShipQueries
+from users.queries import UserQuery
+from users.mutations import UserMutation
 
 
-class Query(ShipQueries, graphene.ObjectType):
+
+
+
+class Query(UserQuery, ShipQueries, graphene.ObjectType):
     pass
 
 
-class Mutation(ShipMutations, graphene.ObjectType):
+class Mutation(UserMutation, ShipMutations, graphene.ObjectType):
     pass
 
 
